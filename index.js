@@ -1,5 +1,8 @@
 //Required JS Files
-const inquirer = require('inquirer');
+const inquirer = require("inquirer");
+const Manager = require("./lib/employeeobjects.js")
+const Engineer = require("./lib/employeeobjects.js")
+const Intern = require("./lib/employeeobjects.js")
 const questions = require("./lib/questions.js")
 
 var team = [];
@@ -8,7 +11,10 @@ var team = [];
 function addManager(){
     inquirer.prompt(questions.manager).then(
         (input) => {
-            console.log(input);
+            let teamManager = new Manager(input.name, input.id, input.email, input.office);
+            team.push(teamManager);
+            console.log(teamManager);
+
             nextTask();
         }
     )
@@ -18,17 +24,17 @@ function addManager(){
 function nextTask(){
     inquirer.prompt(questions.taskPrompt).then(
         (input) => {
-            if(input.taskPrompt === "Engineer"){
+            if(input.promptAnswer === "Engineer"){
                 addEngineer();
                 console.log("Engineer was chosen")
             }
-            else if(input.taskPrompt === "Intern"){
+            else if(input.promptAnswer === "Intern"){
                 addIntern();
                 console.log("Intern was chosen")
             }
-            else if(input.taskPrompt === "Create HTML"){
+            else{
                 createHTML();
-                console.log("Creating HTML")
+                console.log(input.promptAnswer)
             }
         }
     ).catch(
@@ -43,7 +49,10 @@ function nextTask(){
 function addEngineer(){
     inquirer.prompt(questions.engineer).then(
         (input) => {
-            console.log(input);
+            let teamEngineer = new Engineer(input.name, input.id, input.email, input.office);
+            team.push(teamEngineer);
+            console.log(teamEngineer);
+
             nextTask();
         }
     )
@@ -52,7 +61,11 @@ function addEngineer(){
 function addIntern(){
     inquirer.prompt(questions.intern).then(
         (input) => {
-            console.log(input);
+            let teamIntern = new Intern(input.name, input.id, input.email, input.office);
+            team.push(teamIntern);
+            console.log(teamIntern);
+            console.log(team);
+
             nextTask();
         }
     )
