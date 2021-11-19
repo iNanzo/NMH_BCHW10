@@ -1,8 +1,8 @@
 //Required JS Files
 const inquirer = require("inquirer");
-const Manager = require("./lib/employeeobjects.js")
-const Engineer = require("./lib/employeeobjects.js")
-const Intern = require("./lib/employeeobjects.js")
+const Manager = require("./lib/ManagerObj.js")
+const Engineer = require("./lib/EngineerObj.js")
+const Intern = require("./lib/InternObj.js")
 const questions = require("./lib/questions.js")
 
 var team = [];
@@ -49,7 +49,7 @@ function nextTask(){
 function addEngineer(){
     inquirer.prompt(questions.engineer).then(
         (input) => {
-            let teamEngineer = new Engineer(input.name, input.id, input.email, input.office);
+            let teamEngineer = new Engineer(input.name, input.id, input.email, input.github);
             team.push(teamEngineer);
             console.log(teamEngineer);
 
@@ -61,10 +61,8 @@ function addEngineer(){
 function addIntern(){
     inquirer.prompt(questions.intern).then(
         (input) => {
-            let teamIntern = new Intern(input.name, input.id, input.email, input.office);
+            let teamIntern = new Intern(input.name, input.id, input.email, input.school);
             team.push(teamIntern);
-            console.log(teamIntern);
-            console.log(team);
 
             nextTask();
         }
