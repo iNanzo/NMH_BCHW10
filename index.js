@@ -1,9 +1,10 @@
 //Required JS Files
 const inquirer = require("inquirer");
-const Manager = require("./lib/ManagerObj.js")
-const Engineer = require("./lib/EngineerObj.js")
-const Intern = require("./lib/InternObj.js")
-const questions = require("./lib/questions.js")
+const Manager = require("./lib/ManagerObj.js");
+const Engineer = require("./lib/EngineerObj.js");
+const Intern = require("./lib/InternObj.js");
+const questions = require("./lib/questions.js");
+const exportHTML = require("./src/exportHTML");
 
 var team = [];
 
@@ -13,8 +14,6 @@ function addManager(){
         (input) => {
             let teamManager = new Manager(input.name, input.id, input.email, input.office);
             team.push(teamManager);
-            console.log(teamManager);
-
             nextTask();
         }
     )
@@ -26,15 +25,12 @@ function nextTask(){
         (input) => {
             if(input.promptAnswer === "Engineer"){
                 addEngineer();
-                console.log("Engineer was chosen")
             }
             else if(input.promptAnswer === "Intern"){
                 addIntern();
-                console.log("Intern was chosen")
             }
             else{
                 createHTML();
-                console.log(input.promptAnswer)
             }
         }
     )
@@ -47,8 +43,6 @@ function addEngineer(){
         (input) => {
             let teamEngineer = new Engineer(input.name, input.id, input.email, input.github);
             team.push(teamEngineer);
-            console.log(teamEngineer);
-
             nextTask();
         }
     )
@@ -59,7 +53,6 @@ function addIntern(){
         (input) => {
             let teamIntern = new Intern(input.name, input.id, input.email, input.school);
             team.push(teamIntern);
-
             nextTask();
         }
     )
@@ -67,7 +60,7 @@ function addIntern(){
 
 // Create HTML file function
 function createHTML(){
-    console.log("Making File")
+    exportHTML(team);
 }
 
 addManager();
