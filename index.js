@@ -37,10 +37,6 @@ function nextTask(){
                 console.log(input.promptAnswer)
             }
         }
-    ).catch(
-        (error) => {
-            console.log("Error: " + error + ". Please try again.")
-        }
     )
 }
 
