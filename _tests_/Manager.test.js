@@ -1,1 +1,1 @@
-const Manager = require("../lib/ManagerObj.js")
+const Manager = require("../lib/ManagerObj.js");

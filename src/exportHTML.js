@@ -53,7 +53,7 @@ function exportHTML(team){
                     <h5 class="card-title">${object.name}</h5>
                     <ul class="list-group list-group-flush">
                         <li class="bg-dark list-group-item">ID: ${object.id}</li>
-                        <li class="bg-dark list-group-item">E-Mail: ${object.email}</li>
+                        <li class="bg-dark list-group-item">E-Mail: <a href="mailto:${object.email}">${object.email}<a></li>
                         <li class="bg-dark list-group-item">Office: ${object.office}</li>
                     </ul>
                 </div>
@@ -69,8 +69,8 @@ function exportHTML(team){
                     <h5 class="card-title">${object.name}</h5>
                     <ul class="list-group list-group-flush">
                         <li class="bg-dark list-group-item">ID: ${object.id}</li>
-                        <li class="bg-dark list-group-item">E-Mail: ${object.email}</li>
-                        <li class="bg-dark list-group-item">GitHub: ${object.github}</li>
+                        <li class="bg-dark list-group-item">E-Mail: <a href="mailto:${object.email}">${object.email}<a></li>
+                        <li class="bg-dark list-group-item">GitHub: <a href="https://github.com/${object.github}" target="_blank">${object.github}</a></li>
                     </ul>
                 </div>
             </div>
@@ -85,7 +85,7 @@ function exportHTML(team){
                     <h5 class="card-title">${object.name}</h5>
                     <ul class="text-light list-group list-group-flush">
                         <li class="bg-dark list-group-item">ID: ${object.id}</li>
-                        <li class="bg-dark list-group-item">E-Mail: ${object.email}</li>
+                        <li class="bg-dark list-group-item">E-Mail: <a href="mailto:${object.email}">${object.email}<a></li>
                         <li class="bg-dark list-group-item">School: ${object.school}</li>
                     </ul>
                 </div>

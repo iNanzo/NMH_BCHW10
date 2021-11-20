@@ -1,1 +1,1 @@
-const Intern = require("../lib/InternObj.js")
+const Intern = require("../lib/InternObj.js");
