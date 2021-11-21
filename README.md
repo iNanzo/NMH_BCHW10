@@ -1,5 +1,4 @@
-# NMH_BCHW10# BCHW10-OOPTeamProfileGen
-
+# NMH_BCHW10
 ## Description
 
 A Team Profile Generator, the terminal prompts the user for a manager, and from there they can add as many engineers or interns as they want. On the actual generated HTML/Page Emails are hyperlinked to open the user's email program, and engineer githubs will open in a new tab.
